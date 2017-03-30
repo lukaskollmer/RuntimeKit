@@ -10,6 +10,8 @@
 		5D99780B1E8D57F6007E7B9D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D99780A1E8D57F6007E7B9D /* main.swift */; };
 		5D9978131E8D584A007E7B9D /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978121E8D584A007E7B9D /* AssociatedObject.swift */; };
 		5D9978161E8D5C71007E7B9D /* Example-AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978151E8D5C71007E7B9D /* Example-AssociatedObject.swift */; };
+		5D9978181E8D5D46007E7B9D /* Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978171E8D5D46007E7B9D /* Swizzle.swift */; };
+		5D99781A1E8D5D5E007E7B9D /* Example-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978191E8D5D5E007E7B9D /* Example-Swizzle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +31,8 @@
 		5D99780A1E8D57F6007E7B9D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5D9978121E8D584A007E7B9D /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
 		5D9978151E8D5C71007E7B9D /* Example-AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Example-AssociatedObject.swift"; sourceTree = "<group>"; };
+		5D9978171E8D5D46007E7B9D /* Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swizzle.swift; sourceTree = "<group>"; };
+		5D9978191E8D5D5E007E7B9D /* Example-Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Example-Swizzle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				5D9978121E8D584A007E7B9D /* AssociatedObject.swift */,
+				5D9978171E8D5D46007E7B9D /* Swizzle.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -80,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				5D9978151E8D5C71007E7B9D /* Example-AssociatedObject.swift */,
+				5D9978191E8D5D5E007E7B9D /* Example-Swizzle.swift */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -143,6 +149,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D9978181E8D5D46007E7B9D /* Swizzle.swift in Sources */,
+				5D99781A1E8D5D5E007E7B9D /* Example-Swizzle.swift in Sources */,
 				5D9978161E8D5C71007E7B9D /* Example-AssociatedObject.swift in Sources */,
 				5D9978131E8D584A007E7B9D /* AssociatedObject.swift in Sources */,
 				5D99780B1E8D57F6007E7B9D /* main.swift in Sources */,

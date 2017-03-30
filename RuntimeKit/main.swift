@@ -15,3 +15,4 @@ import Foundation
 struct Examples {}
 
 Examples.associatedObject()
+Examples.swizzle()
