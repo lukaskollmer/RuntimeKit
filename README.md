@@ -44,7 +44,7 @@ extension NSDate {
 
 try! NSDate.swizzle(#selector(NSDate.addingTimeInterval(_:)), with: #selector(NSDate.xxx_addingTimeInterval(_:)))
 
-NSDate().addingTimeInterval(100) // will print "will add 100
+NSDate().addingTimeInterval(100) // prints "will add 100"
 ```
 
 **Replacing a method's implementation with a block**
