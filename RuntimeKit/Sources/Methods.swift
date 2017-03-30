@@ -52,29 +52,25 @@ public extension NSObject {
         var count: UInt32 = 0
         let methodList = class_copyMethodList(self.classForCoder(), &count)
         
-        var methods = [ObjCMethod]()
-        
-        for i in 0..<count {
-            guard let method = methodList.unsafelyUnwrapped[Int(i)] else { continue }
-            
-            methods.append(ObjCMethod(method, type: .instance))
-        }
-        
-        return methods
+        return ObjCMethodArrayFromMethodList(methodList, count)
     }
     
     public static var classMethods: [ObjCMethod] {
         var count: UInt32 = 0
         let methodList = class_copyMethodList(object_getClass(self), &count)
         
-        var methods = [ObjCMethod]()
-        
-        for i in 0..<count {
-            guard let method = methodList.unsafelyUnwrapped[Int(i)] else { continue }
-            
-            methods.append(ObjCMethod(method, type: .class))
-        }
-        
-        return methods
+        return ObjCMethodArrayFromMethodList(methodList, count)
     }
+}
+
+fileprivate func ObjCMethodArrayFromMethodList(_ methodList: UnsafeMutablePointer<Method?>?, _ count: UInt32) -> [ObjCMethod] {
+    var methods = [ObjCMethod]()
+    
+    for i in 0..<count {
+        guard let method = methodList.unsafelyUnwrapped[Int(i)] else { continue }
+        
+        methods.append(ObjCMethod(method, type: .instance))
+    }
+    
+    return methods
 }
