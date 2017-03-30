@@ -7,7 +7,7 @@
 RuntimeKit is a Swift library for accessing the Objective-C runtime.
 In addition to providing wrappers around features like method swizzling or associated values, it also provides some type safety.
 
-As of right now, RuntimeKit only supports method swizzling, replacing a methods implementation with a block and setting associated objects. More features will be added over time.
+As of right now, RuntimeKit supports method swizzling, replacing a methods implementation with a block, setting associated objects and looking up an object's properties. More features will be added over time.
 
 
 ## Installation
