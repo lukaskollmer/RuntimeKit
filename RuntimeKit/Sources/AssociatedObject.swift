@@ -9,25 +9,25 @@
 import Foundation
 import ObjectiveC
 
-class AssociatedObjectKeys {
+public class AssociatedObjectKeys {
     fileprivate init () {}
 }
 
-class AssociatedObjectKey<T>: AssociatedObjectKeys {
+public class AssociatedObjectKey<T>: AssociatedObjectKeys {
     fileprivate let value: [CChar]
     
-    init(_ key: String) {
+    public init(_ key: String) {
         self.value = key.cString(using: .utf8)!
     }
 }
 
 
-extension NSObject {
-    func setAssociatedObject<T>(_ value: T?, forKey key: AssociatedObjectKey<T>, policy: objc_AssociationPolicy = .OBJC_ASSOCIATION_RETAIN_NONATOMIC) {
+public extension NSObject {
+    public func setAssociatedObject<T>(_ value: T?, forKey key: AssociatedObjectKey<T>, policy: objc_AssociationPolicy = .OBJC_ASSOCIATION_RETAIN_NONATOMIC) {
         objc_setAssociatedObject(self, key.value, value, policy)
     }
     
-    func getAssociatedObject<T>(forKey key: AssociatedObjectKey<T>) -> T? {
+    public func getAssociatedObject<T>(forKey key: AssociatedObjectKey<T>) -> T? {
         return objc_getAssociatedObject(self, key.value) as? T
     }
 }
