@@ -18,8 +18,6 @@ As of right now, RuntimeKit only supports method swizzling, replacing a methods 
 pod 'RuntimeKit'
 ```
 
-<br>
-
 **Build from source**
 
 Just copy everything in `RuntimeKit/Sources` into your Xcode project
