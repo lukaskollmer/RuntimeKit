@@ -12,6 +12,7 @@ import Foundation
 extension AssociatedObjectKeys {
     static let name = AssociatedObjectKey<NSString>("name")
     static let age  = AssociatedObjectKey<Int>("age")
+    static let bday = AssociatedObjectKey<Date>("birthday")
 }
 
 fileprivate class Person: NSObject { }
@@ -22,6 +23,7 @@ extension Examples {
         
         me.setAssociatedObject("lukas", forKey: .name)
         me.setAssociatedObject(18, forKey: .age)
+        me.setAssociatedObject(Date(), forKey: .bday)
         
         if let name = me.getAssociatedObject(forKey: .name) {
             print(name)
@@ -29,6 +31,10 @@ extension Examples {
         
         if let age = me.getAssociatedObject(forKey: .age) {
             print(age)
+        }
+        
+        if let birthday = me.getAssociatedObject(forKey: .bday) {
+            print(birthday)
         }
 
     }
