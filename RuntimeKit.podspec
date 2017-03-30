@@ -18,12 +18,15 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  RuntimeKit is a Swift library for accessing the Objective-C runtime.
+  In addition to providing wrappers around features like method swizzling or associated values, it also provides some type safety.
+
+  As of right now, RuntimeKit only supports method swizzling, replacing a methods implementation with a block and setting associated objects. More features will be added over time.
                        DESC
 
   s.homepage         = 'https://github.com/lukaskollmer/RuntimeKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.license          = { :type => 'MIT', :file => 'License' }
   s.author           = { 'lukaskollmer' => 'lukas.kollmer@gmail.com' }
   s.source           = { :git => 'https://github.com/lukaskollmer/RuntimeKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
