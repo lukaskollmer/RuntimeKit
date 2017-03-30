@@ -8,5 +8,10 @@
 
 import Foundation
 
-print("Hello, World!")
+/*
+ This file just runs some examples. The Sources folder contains the real magic
+ */
 
+struct Examples {}
+
+Examples.associatedObject()
