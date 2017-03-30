@@ -38,6 +38,29 @@ extension NSObject {
             method_exchangeImplementations(originalMethod, swizzledMethod)
         }
     }
+    
+    class func replace(_ originalSelector: Selector, withBlock block: Any!, methodType: MethodType = .instance) throws {
+        guard methodType == .instance else {
+            fatalError("class methods aren't yet supported")
+        }
+        
+        guard let originalMethod = class_getMethod(self, originalSelector, methodType) else {
+            throw RuntimeKitError.swizzleMethodNotFound
+        }
+        
+        
+        print(String(cString: method_getTypeEncoding(originalMethod)))
+        
+        guard let swizzledImplementation = imp_implementationWithBlock(block) else {
+            fatalError("unable to create IMP from block")
+        }
+        
+        method_setImplementation(originalMethod, swizzledImplementation)
+        
+        //class_replaceMethod(self, originalSelector, swizzledImplementation, method_getTypeEncoding(originalMethod))
+        
+        //method_setImplementation(originalMethod, swizzledImplementation)
+    }
 }
 
 
