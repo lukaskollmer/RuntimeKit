@@ -11,6 +11,8 @@ import ObjectiveC
 
 enum RuntimeKitError: Error {
     case swizzleMethodNotFound
+    case unableToCreateMethodImplmentationFromBlock
+    case classMethodsNotYetSupported
 }
 
 enum MethodType {
@@ -22,7 +24,7 @@ extension NSObject {
     class func swizzle(_ originalSelector: Selector, with swizzledSelector: Selector, methodType: MethodType = .instance) throws {
         
         guard methodType == .instance else {
-            fatalError("class methods aren't yet supported")
+            throw RuntimeKitError.classMethodsNotYetSupported
         }
         
         guard let originalMethod = class_getMethod(self, originalSelector, methodType), let swizzledMethod = class_getMethod(self, swizzledSelector, methodType) else {
@@ -41,7 +43,7 @@ extension NSObject {
     
     class func replace(_ originalSelector: Selector, withBlock block: Any!, methodType: MethodType = .instance) throws {
         guard methodType == .instance else {
-            fatalError("class methods aren't yet supported")
+            throw RuntimeKitError.classMethodsNotYetSupported
         }
         
         guard let originalMethod = class_getMethod(self, originalSelector, methodType) else {
@@ -49,17 +51,12 @@ extension NSObject {
         }
         
         
-        print(String(cString: method_getTypeEncoding(originalMethod)))
-        
         guard let swizzledImplementation = imp_implementationWithBlock(block) else {
-            fatalError("unable to create IMP from block")
+            throw RuntimeKitError.unableToCreateMethodImplmentationFromBlock
         }
         
         method_setImplementation(originalMethod, swizzledImplementation)
         
-        //class_replaceMethod(self, originalSelector, swizzledImplementation, method_getTypeEncoding(originalMethod))
-        
-        //method_setImplementation(originalMethod, swizzledImplementation)
     }
 }
 
