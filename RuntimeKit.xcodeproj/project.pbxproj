@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D71EAF81E8DB28800F430FA /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EAF71E8DB28800F430FA /* Methods.swift */; };
 		5D99780B1E8D57F6007E7B9D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D99780A1E8D57F6007E7B9D /* main.swift */; };
 		5D9978131E8D584A007E7B9D /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978121E8D584A007E7B9D /* AssociatedObject.swift */; };
 		5D9978181E8D5D46007E7B9D /* Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978171E8D5D46007E7B9D /* Swizzle.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5D71EAF71E8DB28800F430FA /* Methods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
 		5D9978071E8D57F6007E7B9D /* RuntimeKit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RuntimeKit; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D99780A1E8D57F6007E7B9D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5D9978121E8D584A007E7B9D /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				5D9978121E8D584A007E7B9D /* AssociatedObject.swift */,
 				5D9978171E8D5D46007E7B9D /* Swizzle.swift */,
+				5D71EAF71E8DB28800F430FA /* Methods.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D71EAF81E8DB28800F430FA /* Methods.swift in Sources */,
 				5D9978181E8D5D46007E7B9D /* Swizzle.swift in Sources */,
 				5D9978131E8D584A007E7B9D /* AssociatedObject.swift in Sources */,
 				5D99780B1E8D57F6007E7B9D /* main.swift in Sources */,
@@ -271,6 +275,7 @@
 				5D9978101E8D57F6007E7B9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
