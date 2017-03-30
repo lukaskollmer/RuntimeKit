@@ -11,19 +11,19 @@ import ObjectiveC
 
 
 public struct ObjCMethod {
-    let name: String
-    let selector: Selector
-    let type: MethodType
+    public let name: String
+    public let selector: Selector
+    public let type: MethodType
     
-    var returnType: String {
+    public var returnType: String {
         return String(cString: method_copyReturnType(_method))
     }
     
-    var numberOfArguments: Int {
+    public var numberOfArguments: Int {
         return Int(method_getNumberOfArguments(_method))
     }
     
-    var argumentTypes: [String] {
+    public var argumentTypes: [String] {
         var argTypes = [String]()
         for i in 0..<numberOfArguments {
             argTypes.append(String(cString: method_copyArgumentType(_method, UInt32(i))))
@@ -32,11 +32,11 @@ public struct ObjCMethod {
         return argTypes
     }
     
-    var implementation: IMP {
+    public var implementation: IMP {
         return method_getImplementation(_method)
     }
     
-    let _method: Method
+    public let _method: Method
     
     init(_ method: Method, type: MethodType) {
         self._method = method

@@ -21,7 +21,7 @@ public enum MethodType {
 }
 
 public extension NSObject {
-    public class func swizzle(_ originalSelector: Selector, with swizzledSelector: Selector, methodType: MethodType = .instance) throws {
+    public static func swizzle(_ originalSelector: Selector, with swizzledSelector: Selector, methodType: MethodType = .instance) throws {
         
         guard methodType == .instance else {
             throw RuntimeKitError.classMethodsNotYetSupported
@@ -41,7 +41,7 @@ public extension NSObject {
         }
     }
     
-    public class func replace(_ originalSelector: Selector, withBlock block: Any!, methodType: MethodType = .instance) throws {
+    public static func replace(_ originalSelector: Selector, withBlock block: Any!, methodType: MethodType = .instance) throws {
         
         guard let originalMethod = class_getMethod(self, originalSelector, methodType) else {
             throw RuntimeKitError.swizzleMethodNotFound
