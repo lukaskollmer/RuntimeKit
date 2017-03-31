@@ -15,6 +15,7 @@ public enum RuntimeKitError: Error {
     case classnameAlreadyTaken
     case unableToCreateClass
     case protocolAlreadyExists
+    case unableToCreateProtocol
 }
 
 public struct Runtime { }
