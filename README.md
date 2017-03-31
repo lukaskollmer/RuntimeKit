@@ -8,7 +8,7 @@
 RuntimeKit is a Swift library for accessing the Objective-C runtime.
 In addition to providing wrappers around features like method swizzling or associated values, it also provides some type safety.
 
-As of right now, RuntimeKit supports method swizzling, replacing a methods implementation with a block, setting associated objects and looking up an object's properties. More features will be added over time.
+As of right now, RuntimeKit supports method swizzling, replacing a methods implementation with a block, setting associated objects, looking up an object's properties, adding new methods to existing classes and creating new classes and protocols. More features will be added over time.
 
 
 ## Installation
@@ -27,6 +27,8 @@ Just copy everything in `RuntimeKit/Sources` into your Xcode project
 ## Features:
 1. [Method swizzling](#method-swizzling)
 2. [Associated objects](#associated-objects)
+3. [Creating new classes](#creating-new-classes)
+4. [Creating new protocols](#creating-new-protocols)
 
 
 ### Method Swizzling
@@ -77,4 +79,32 @@ me.setAssociatedObject(18, forKey: .age)
 let name = me.getAssociatedObject(forKey: .name) // Optional("Lukas")
 let age  = me.getAssociatedObject(forKey: .age)  // Optional(18)
 
+```
+
+
+### Creating new classes
+
+```swift
+let LKGreeter = try! Runtime.createClass("LKGreeter")
+
+let greetMethod_block: @convention(block) (NSObject, Selector, String) -> String = { (_self, _sel, name) in
+    return "Hello, \(name)"
+}
+
+try! LKGreeter.addMethod("greet", implementation: greetMethod_block, methodType: .class, returnType: .object, argumentTypes: [.object, .selector, .object])
+
+LKGreeter.perform("greet", with: "Lukas").takeRetainedValue() // result: "Hello, Lukas"
+```
+
+
+
+### Creating new protocols
+
+```swift
+let methods = [
+    ObjCMethodDescription("greet", returnType: .object, argumentTypes: [.object, .selector, .object], methodType: .class, isRequired: true)
+]
+
+let GreeterProtocol = try! Runtime.createProtocol("Greeter", methods: methods)
+let LKGreeter = try! Runtime.createClass("LKGreeter", superclass: NSObject.self, protocols: [GreeterProtocol])
 ```
