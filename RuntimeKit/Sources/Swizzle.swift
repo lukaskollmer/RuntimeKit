@@ -9,12 +9,6 @@
 import Foundation
 import ObjectiveC
 
-public enum RuntimeKitError: Error {
-    case swizzleMethodNotFound
-    case unableToCreateMethodImplmentationFromBlock
-    case classMethodsNotYetSupported
-}
-
 public enum MethodType {
     case instance
     case `class`

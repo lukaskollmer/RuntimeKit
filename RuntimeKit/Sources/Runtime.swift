@@ -8,4 +8,12 @@
 
 import Foundation
 
+public enum RuntimeKitError: Error {
+    case swizzleMethodNotFound
+    case unableToCreateMethodImplmentationFromBlock
+    case classMethodsNotYetSupported
+    case classnameAlreadyTaken
+    case unableToCreateClass
+}
+
 public struct Runtime { }
