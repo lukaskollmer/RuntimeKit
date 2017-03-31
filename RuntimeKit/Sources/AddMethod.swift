@@ -11,7 +11,7 @@ import ObjectiveC
 
 public extension NSObject {
     @discardableResult
-    public static func addMethod(_ newSelector: Selector, implementation implementationBlock: Any, returnType: ObjCTypeEncoding = .void, argumentTypes: [ObjCTypeEncoding] = [.object, .selector], methodType: MethodType = .instance) throws -> Bool {
+    public static func addMethod(_ newSelector: Selector, implementation implementationBlock: Any, methodType: MethodType = .instance, returnType: ObjCTypeEncoding = .void, argumentTypes: [ObjCTypeEncoding] = [.object, .selector]) throws -> Bool {
         
         let cls: AnyClass = methodType == .instance ? self : object_getClass(self)
         
