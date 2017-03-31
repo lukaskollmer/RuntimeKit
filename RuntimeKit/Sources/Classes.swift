@@ -9,7 +9,7 @@
 import Foundation
 import ObjectiveC
 
-public struct ObjCClass {
+public struct ObjCClassDescription {
     public let name: String
     public let `class`: AnyClass
     public let protocols: [Protocol]
@@ -23,15 +23,15 @@ public struct ObjCClass {
 
 
 public extension Runtime {
-    public static var allClasses: [ObjCClass] {
+    public static var allClasses: [ObjCClassDescription] {
         var count: UInt32 = 0
         let classList = objc_copyClassList(&count)
         
-        var allClasses = [ObjCClass]()
+        var allClasses = [ObjCClassDescription]()
         
         for i in 0..<count {
             guard let `class` = classList.unsafelyUnwrapped[Int(i)] else { continue }
-            allClasses.append(ObjCClass(`class`))
+            allClasses.append(ObjCClassDescription(`class`))
         }
         
         return allClasses

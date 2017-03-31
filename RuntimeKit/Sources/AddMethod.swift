@@ -10,6 +10,7 @@ import Foundation
 import ObjectiveC
 
 public extension NSObject {
+    
     @discardableResult
     public static func addMethod(_ newSelector: Selector, implementation implementationBlock: Any, methodType: MethodType = .instance, returnType: ObjCTypeEncoding = .void, argumentTypes: [ObjCTypeEncoding] = [.object, .selector]) throws -> Bool {
         

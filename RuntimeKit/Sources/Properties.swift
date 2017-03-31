@@ -9,7 +9,7 @@
 import Foundation
 import ObjectiveC
 
-public struct ObjCProperty {
+public struct ObjCPropertyDescription {
     public var name: String {
         return String(cString: property_getName(property))
     }
@@ -22,16 +22,16 @@ public struct ObjCProperty {
 }
 
 public extension NSObject {
-    public static var properties: [ObjCProperty] {
+    public static var properties: [ObjCPropertyDescription] {
         var count: UInt32 = 0
         let propertyList = class_copyPropertyList(self, &count)
         
-        var properties = [ObjCProperty]()
+        var properties = [ObjCPropertyDescription]()
         
         for i in 0..<count {
             guard let property = propertyList.unsafelyUnwrapped[Int(i)] else { continue }
             
-            properties.append(ObjCProperty(property))
+            properties.append(ObjCPropertyDescription(property))
         }
         
         return properties
