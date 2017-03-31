@@ -30,3 +30,10 @@ public enum ObjCTypeEncoding: String {
     case unsignedLong     = "L"
     case unsignedLongLong = "Q"
 }
+
+
+func TypeEncoding(_ returnType: ObjCTypeEncoding, _ argumentTypes: [ObjCTypeEncoding]) -> [CChar] {
+    let argTypes = argumentTypes.map { $0.rawValue }.joined()
+    
+    return returnType.rawValue.appending(argTypes).cString(using: .utf8)!
+}

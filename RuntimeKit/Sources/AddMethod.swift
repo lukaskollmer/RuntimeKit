@@ -15,11 +15,7 @@ public extension NSObject {
         
         let cls: AnyClass = methodType == .instance ? self : object_getClass(self)
         
-        let encoding: [CChar] = {
-            let argTypes = argumentTypes.map { $0.rawValue }.joined()
-            
-            return returnType.rawValue.appending(argTypes).cString(using: .utf8)!
-        }()
+        let encoding = TypeEncoding(returnType, argumentTypes)
         
         guard let implementation = imp_implementationWithBlock(implementationBlock) else {
             throw RuntimeKitError.unableToCreateMethodImplmentationFromBlock
