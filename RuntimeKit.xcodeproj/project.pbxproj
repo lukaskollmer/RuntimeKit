@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5D4F963F1E8E54EE00CE6FAA /* TypeEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F963E1E8E54EE00CE6FAA /* TypeEncoding.swift */; };
+		5D4F96411E8EB7AB00CE6FAA /* CreateClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F96401E8EB7AB00CE6FAA /* CreateClass.swift */; };
 		5D71EAF81E8DB28800F430FA /* MethodLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EAF71E8DB28800F430FA /* MethodLookup.swift */; };
 		5D71EAFC1E8DBBF300F430FA /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EAFB1E8DBBF300F430FA /* Properties.swift */; };
 		5D71EAFE1E8E1DD100F430FA /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EAFD1E8E1DD100F430FA /* Runtime.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		5D4F963E1E8E54EE00CE6FAA /* TypeEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeEncoding.swift; sourceTree = "<group>"; };
+		5D4F96401E8EB7AB00CE6FAA /* CreateClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateClass.swift; sourceTree = "<group>"; };
 		5D71EAF71E8DB28800F430FA /* MethodLookup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodLookup.swift; sourceTree = "<group>"; };
 		5D71EAFB1E8DBBF300F430FA /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
 		5D71EAFD1E8E1DD100F430FA /* Runtime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				5D4F963E1E8E54EE00CE6FAA /* TypeEncoding.swift */,
 				5D71EAFB1E8DBBF300F430FA /* Properties.swift */,
 				5D71EAFF1E8E1E5800F430FA /* Classes.swift */,
+				5D4F96401E8EB7AB00CE6FAA /* CreateClass.swift */,
 				5D71EAFD1E8E1DD100F430FA /* Runtime.swift */,
 			);
 			path = Sources;
@@ -159,6 +162,7 @@
 				5D9978181E8D5D46007E7B9D /* Swizzle.swift in Sources */,
 				5D71EB021E8E223400F430FA /* AddMethod.swift in Sources */,
 				5D9978131E8D584A007E7B9D /* AssociatedObject.swift in Sources */,
+				5D4F96411E8EB7AB00CE6FAA /* CreateClass.swift in Sources */,
 				5D4F963F1E8E54EE00CE6FAA /* TypeEncoding.swift in Sources */,
 				5D71EAFE1E8E1DD100F430FA /* Runtime.swift in Sources */,
 				5D99780B1E8D57F6007E7B9D /* main.swift in Sources */,
