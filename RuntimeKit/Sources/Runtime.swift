@@ -14,6 +14,7 @@ public enum RuntimeKitError: Error {
     case classMethodsNotYetSupported
     case classnameAlreadyTaken
     case unableToCreateClass
+    case protocolAlreadyExists
 }
 
 public struct Runtime { }
