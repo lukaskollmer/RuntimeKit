@@ -9,9 +9,9 @@
 import Foundation
 import ObjectiveC
 
-extension NSObject {
+public extension NSObject {
     @discardableResult
-    static func addMethod(_ newSelector: Selector, implementation implementationBlock: Any, returnType: ObjCTypeEncoding = .void, argumentTypes: [ObjCTypeEncoding] = [.object, .selector], methodType: MethodType = .instance) throws -> Bool {
+    public static func addMethod(_ newSelector: Selector, implementation implementationBlock: Any, returnType: ObjCTypeEncoding = .void, argumentTypes: [ObjCTypeEncoding] = [.object, .selector], methodType: MethodType = .instance) throws -> Bool {
         
         let cls: AnyClass = methodType == .instance ? self : object_getClass(self)
         

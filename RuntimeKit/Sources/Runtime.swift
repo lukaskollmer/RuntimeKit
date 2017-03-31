@@ -8,4 +8,4 @@
 
 import Foundation
 
-struct Runtime { }
+public struct Runtime { }

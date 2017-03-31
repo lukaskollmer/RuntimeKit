@@ -9,12 +9,12 @@
 import Foundation
 import ObjectiveC
 
-struct ObjCClass {
-    let name: String
-    let `class`: AnyClass
-    let protocols: [Protocol]
+public struct ObjCClass {
+    public let name: String
+    public let `class`: AnyClass
+    public let protocols: [Protocol]
     
-    init(_ `class`: AnyClass) {
+    public init(_ `class`: AnyClass) {
         self.name = String(cString: class_getName(`class`))
         self.class = `class`
         self.protocols = [] // TODO
@@ -22,8 +22,8 @@ struct ObjCClass {
 }
 
 
-extension Runtime {
-    static var allClasses: [ObjCClass] {
+public extension Runtime {
+    public static var allClasses: [ObjCClass] {
         var count: UInt32 = 0
         let classList = objc_copyClassList(&count)
         
@@ -37,7 +37,7 @@ extension Runtime {
         return allClasses
     }
     
-    static func classExists(_ name: String) -> Bool {
+    public static func classExists(_ name: String) -> Bool {
         return objc_getClass(name.cString(using: .utf8)) != nil
     }
 }
