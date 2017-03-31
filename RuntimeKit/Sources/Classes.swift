@@ -36,4 +36,8 @@ extension Runtime {
         
         return allClasses
     }
+    
+    static func classExists(_ name: String) -> Bool {
+        return objc_getClass(name.cString(using: .utf8)) != nil
+    }
 }
