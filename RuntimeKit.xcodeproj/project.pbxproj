@@ -86,6 +86,7 @@
 		5D9978111E8D5835007E7B9D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				5D71EAFD1E8E1DD100F430FA /* Runtime.swift */,
 				5D9978121E8D584A007E7B9D /* AssociatedObject.swift */,
 				5D9978171E8D5D46007E7B9D /* Swizzle.swift */,
 				5D71EAF71E8DB28800F430FA /* MethodLookup.swift */,
@@ -94,7 +95,6 @@
 				5D71EAFB1E8DBBF300F430FA /* Properties.swift */,
 				5D71EAFF1E8E1E5800F430FA /* Classes.swift */,
 				5D4F96401E8EB7AB00CE6FAA /* CreateClass.swift */,
-				5D71EAFD1E8E1DD100F430FA /* Runtime.swift */,
 				5D4F96421E8EC83F00CE6FAA /* Protocols.swift */,
 			);
 			path = Sources;

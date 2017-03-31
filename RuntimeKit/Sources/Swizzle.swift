@@ -17,19 +17,17 @@ public enum MethodType {
 public extension NSObject {
     public static func swizzle(_ originalSelector: Selector, with swizzledSelector: Selector, methodType: MethodType = .instance) throws {
         
-        guard methodType == .instance else {
-            throw RuntimeKitError.classMethodsNotYetSupported
-        }
+        let cls: AnyClass = methodType == .instance ? self : object_getClass(self)
         
-        guard let originalMethod = class_getMethod(self, originalSelector, methodType), let swizzledMethod = class_getMethod(self, swizzledSelector, methodType) else {
+        guard let originalMethod = class_getMethod(cls, originalSelector, methodType), let swizzledMethod = class_getMethod(cls, swizzledSelector, methodType) else {
             throw RuntimeKitError.swizzleMethodNotFound
         }
         
         
-        let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
+        let didAddMethod = class_addMethod(cls, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
         
         if didAddMethod {
-            class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
+            class_replaceMethod(cls, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
         } else {
             method_exchangeImplementations(originalMethod, swizzledMethod)
         }
@@ -37,7 +35,9 @@ public extension NSObject {
     
     public static func replace(_ originalSelector: Selector, withBlock block: Any!, methodType: MethodType = .instance) throws {
         
-        guard let originalMethod = class_getMethod(self, originalSelector, methodType) else {
+        let cls: AnyClass = methodType == .instance ? self : object_getClass(self)
+        
+        guard let originalMethod = class_getMethod(cls, originalSelector, methodType) else {
             throw RuntimeKitError.swizzleMethodNotFound
         }
         
