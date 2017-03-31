@@ -1,5 +1,5 @@
 language: objective-c
-xcode_project: RuneimtKit.xcodeproj # path to your xcodeproj folder
+xcode_project: RuntimeKit.xcodeproj # path to your xcodeproj folder
 xcode_scheme: RuntimeKit
 
 osx_image: xcode8.3
