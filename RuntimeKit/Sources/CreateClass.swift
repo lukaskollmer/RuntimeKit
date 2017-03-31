@@ -9,7 +9,7 @@
 import Foundation
 
 public extension Runtime {
-    public static func createClass(_ name: String, superclass: AnyClass = NSObject.self, instanceMethods: Any = [], classMethods: [Any] = [], protocols: [String] = []) throws  -> NSObject.Type {
+    public static func createClass(_ name: String, superclass: AnyClass = NSObject.self, protocols: [Protocol] = []) throws  -> NSObject.Type {
         guard !Runtime.classExists(name) else {
             throw RuntimeKitError.classnameAlreadyTaken
         }
@@ -21,9 +21,7 @@ public extension Runtime {
         objc_registerClassPair(newClass)
         
         protocols.forEach {
-            guard let `protocol` = objc_getProtocol($0.cString(using: .utf8)) else { return }
-            
-            class_addProtocol(newClass, `protocol`)
+            class_addProtocol(newClass, $0)
         }
         
         guard let castedClass = newClass as? NSObject.Type else {
