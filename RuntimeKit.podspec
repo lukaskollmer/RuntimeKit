@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RuntimeKit'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'Swift wrapper around the Objective-C runtime APIs'
 
 # This description is used to generate tags and improve search results.
@@ -19,17 +19,15 @@ Pod::Spec.new do |s|
 
   s.description      = <<-DESC
   RuntimeKit is a Swift library for accessing the Objective-C runtime.
-  In addition to providing wrappers around features like method swizzling or associated values, it also provides some type safety.
-
-  As of right now, RuntimeKit only supports method swizzling, replacing a methods implementation with a block and setting associated objects. More features will be added over time.
+  In addition to providing wrappers around features like method swizzling, adding new methods to classes, creating new classes or protocols, or associated values, it also provides more type safety.
                        DESC
 
   s.homepage         = 'https://github.com/lukaskollmer/RuntimeKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'License' }
-  s.author           = { 'lukaskollmer' => 'lukas.kollmer@gmail.com' }
+  s.author           = { 'Lukas Kollmer' => 'lukas.kollmer@gmail.com' }
   s.source           = { :git => 'https://github.com/lukaskollmer/RuntimeKit.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'https://twitter.com/lukas_kollmer'
 
   s.ios.deployment_target = '8.0'
 
