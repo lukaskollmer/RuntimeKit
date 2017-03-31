@@ -1,5 +1,6 @@
 # RuntimeKit
 
+[![Build Status](https://travis-ci.org/lukaskollmer/RuntimeKit.svg?branch=master)](https://travis-ci.org/lukaskollmer/RuntimeKit)
 ![](https://img.shields.io/badge/Swift-3.1-orange.svg)
 ![CocoaPods](https://img.shields.io/cocoapods/v/RuntimeKit.svg)
 ![CocoaPods](https://img.shields.io/cocoapods/l/RuntimeKit.svg)
