@@ -9,7 +9,9 @@
 import Foundation
 import ObjectiveC
 
+/// Struct describing an Objective-C property
 public struct ObjCPropertyDescription {
+    /// The property's name
     public var name: String {
         return String(cString: property_getName(property))
     }
@@ -22,6 +24,7 @@ public struct ObjCPropertyDescription {
 }
 
 public extension NSObject {
+    /// Get an object's properties
     public static var properties: [ObjCPropertyDescription] {
         var count: UInt32 = 0
         let propertyList = class_copyPropertyList(self, &count)

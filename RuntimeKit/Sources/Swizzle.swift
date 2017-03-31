@@ -15,6 +15,13 @@ public enum MethodType {
 }
 
 public extension NSObject {
+    /// Swizzle a method
+    ///
+    /// - Parameters:
+    ///   - originalSelector: The method's original selector
+    ///   - swizzledSelector: The new selector to swizzle with
+    ///   - methodType: `MethodType` case determining whether you want to swizzle an instance method (`.instance`) or a class method (`.class`)
+    /// - Throws: `RuntimeKitError.swizzleMethodNotFound` if the selectors cannot be found on `self`
     public static func swizzle(_ originalSelector: Selector, with swizzledSelector: Selector, methodType: MethodType = .instance) throws {
         
         let cls: AnyClass = methodType == .instance ? self : object_getClass(self)
@@ -33,6 +40,13 @@ public extension NSObject {
         }
     }
     
+    /// Replace a method's implementation with a block
+    ///
+    /// - Parameters:
+    ///   - originalSelector: The selector of the method you want to replace
+    ///   - block: The block to be called instead of the method's implementation
+    ///   - methodType: `MethodType` case determining whether you want to replace an instance method (`.instance`) or a class method (`.class`)
+    /// - Throws: `RuntimeKitError.swizzleMethodNotFound` if the method cannot be found or `RuntimeKitError.unableToCreateMethodImplmentationFromBlock` if the block cannot be turned into a method implementation
     public static func replace(_ originalSelector: Selector, withBlock block: Any!, methodType: MethodType = .instance) throws {
         
         let cls: AnyClass = methodType == .instance ? self : object_getClass(self)

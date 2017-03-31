@@ -9,11 +9,20 @@
 import Foundation
 import ObjectiveC
 
+/// Struct describing an Objective-C class
 public struct ObjCClassDescription {
+    /// The classes name
     public let name: String
-    public let `class`: AnyClass
-    public let protocols: [Protocol]
     
+    /// The actual class object (`AnyClass`)
+    public let `class`: AnyClass
+    
+    /// All protocols implemented by the class
+    private let protocols: [Protocol]
+    
+    /// Create a new `ObjCClassDescription` from an `AnyClass` object
+    ///
+    /// - Parameter `class`: A class
     public init(_ `class`: AnyClass) {
         self.name = String(cString: class_getName(`class`))
         self.class = `class`
@@ -23,6 +32,7 @@ public struct ObjCClassDescription {
 
 
 public extension Runtime {
+    /// All classes registered with the Objective-C runtime
     public static var allClasses: [ObjCClassDescription] {
         var count: UInt32 = 0
         let classList = objc_copyClassList(&count)
@@ -37,6 +47,10 @@ public extension Runtime {
         return allClasses
     }
     
+    /// Check whether a class with the given name exists
+    ///
+    /// - Parameter name: A class name
+    /// - Returns: `true` if the class exists, otherwise `false`
     public static func classExists(_ name: String) -> Bool {
         return objc_getClass(name.cString(using: .utf8)) != nil
     }

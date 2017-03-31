@@ -8,6 +8,25 @@
 
 import Foundation
 
+/// Objective-C type encoding
+///
+/// - int: Int (i)
+/// - float: Float (f)
+/// - double: Double (d)
+/// - bool: Bool (B)
+/// - void: void (v)
+/// - object: Objecy (@)
+/// - `class`: Class (#)
+/// - selector: Selector (:)
+/// - char: Char (c)
+/// - short: Short (s)
+/// - characterString: char* (*)
+/// - longLong: long long (q)
+/// - unsignedChar: unsigned char (C)
+/// - unsignedInt: unsigned int (I)
+/// - unsignedShort: unsigned short (S)
+/// - unsignedLong: unsigned long (L)
+/// - unsignedLongLong: unsigned long long (Q)
 public enum ObjCTypeEncoding: String {
     case int    = "i"
     case float  = "f"

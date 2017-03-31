@@ -10,19 +10,28 @@ import Foundation
 import ObjectiveC
 
 
+/// An Objective-C method
 public struct ObjCMethod {
+    /// The method's name
     public let name: String
+    
+    /// The method's selector
     public let selector: Selector
+    
+    /// The method's type (whether it's an instace method or a class method)
     public let type: MethodType
     
+    /// A String describing the method's return type
     public var returnType: String {
         return String(cString: method_copyReturnType(_method))
     }
     
+    /// Number of arguments accepted by the method
     public var numberOfArguments: Int {
         return Int(method_getNumberOfArguments(_method))
     }
     
+    /// The method's argument types
     public var argumentTypes: [String] {
         var argTypes = [String]()
         for i in 0..<numberOfArguments {
@@ -32,12 +41,18 @@ public struct ObjCMethod {
         return argTypes
     }
     
+    /// The method's implementation
     public var implementation: IMP {
         return method_getImplementation(_method)
     }
     
     public let _method: Method
     
+    /// Create a new ObjCMethod instance from a `Method` object and a `MethodType` case
+    ///
+    /// - Parameters:
+    ///   - method: The actual ObjC method
+    ///   - type: The method's type
     init(_ method: Method, type: MethodType) {
         self._method = method
         self.type = type
@@ -48,6 +63,7 @@ public struct ObjCMethod {
 
 
 public extension NSObject {
+    /// An object's instance methods
     public static var instanceMethods: [ObjCMethod] {
         var count: UInt32 = 0
         let methodList = class_copyMethodList(self.classForCoder(), &count)
@@ -55,6 +71,7 @@ public extension NSObject {
         return ObjCMethodArrayFromMethodList(methodList, count, .instance)
     }
     
+    /// An object's class methods
     public static var classMethods: [ObjCMethod] {
         var count: UInt32 = 0
         let methodList = class_copyMethodList(object_getClass(self), &count)

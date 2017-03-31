@@ -9,6 +9,14 @@
 import Foundation
 
 public extension Runtime {
+    /// Register a new class with the Objective-C runtime
+    ///
+    /// - Parameters:
+    ///   - name: The name of the new class
+    ///   - superclass: The superclass. Defaults to `NSObject`
+    ///   - protocols: All protocols the class should adopt
+    /// - Returns: The new class
+    /// - Throws: `RuntimeKitError.classnameAlreadyTaken` if the classname isn't available anymore, `RuntimeKitError.unableToCreateClass` if there was an error registering the new class
     public static func createClass(_ name: String, superclass: AnyClass = NSObject.self, protocols: [Protocol] = []) throws  -> NSObject.Type {
         guard !Runtime.classExists(name) else {
             throw RuntimeKitError.classnameAlreadyTaken
