@@ -10,12 +10,14 @@ import Foundation
 import ObjectiveC
 
 public struct ObjCProperty {
-    public let name: String
-    //public let type: String
+    public var name: String {
+        return String(cString: property_getName(property))
+    }
+    
+    public let property: objc_property_t
     
     init(_ property: objc_property_t) {
-        self.name = String(cString: property_getName(property))
-        //self.type = String(cString: property_getAttributes(<#T##property: objc_property_t!##objc_property_t!#>))
+        self.property = property
     }
 }
 
