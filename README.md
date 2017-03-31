@@ -21,7 +21,7 @@ pod 'RuntimeKit'
 
 **Build from source**
 
-Just copy everything in `RuntimeKit/Sources` into your Xcode project
+Just copy everything in [`RuntimeKit/Sources`](https://github.com/lukaskollmer/RuntimeKit/tree/master/RuntimeKit/Sources) into your Xcode project
 
 
 ## Features:
