@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D71EAF81E8DB28800F430FA /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EAF71E8DB28800F430FA /* Methods.swift */; };
+		5D4F963F1E8E54EE00CE6FAA /* TypeEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F963E1E8E54EE00CE6FAA /* TypeEncoding.swift */; };
+		5D71EAF81E8DB28800F430FA /* MethodLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EAF71E8DB28800F430FA /* MethodLookup.swift */; };
 		5D71EAFC1E8DBBF300F430FA /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EAFB1E8DBBF300F430FA /* Properties.swift */; };
 		5D71EAFE1E8E1DD100F430FA /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EAFD1E8E1DD100F430FA /* Runtime.swift */; };
 		5D71EB001E8E1E5800F430FA /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EAFF1E8E1E5800F430FA /* Classes.swift */; };
+		5D71EB021E8E223400F430FA /* AddMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EB011E8E223400F430FA /* AddMethod.swift */; };
 		5D99780B1E8D57F6007E7B9D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D99780A1E8D57F6007E7B9D /* main.swift */; };
 		5D9978131E8D584A007E7B9D /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978121E8D584A007E7B9D /* AssociatedObject.swift */; };
 		5D9978181E8D5D46007E7B9D /* Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978171E8D5D46007E7B9D /* Swizzle.swift */; };
@@ -29,10 +31,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5D71EAF71E8DB28800F430FA /* Methods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
+		5D4F963E1E8E54EE00CE6FAA /* TypeEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeEncoding.swift; sourceTree = "<group>"; };
+		5D71EAF71E8DB28800F430FA /* MethodLookup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodLookup.swift; sourceTree = "<group>"; };
 		5D71EAFB1E8DBBF300F430FA /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
 		5D71EAFD1E8E1DD100F430FA /* Runtime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
 		5D71EAFF1E8E1E5800F430FA /* Classes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
+		5D71EB011E8E223400F430FA /* AddMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMethod.swift; sourceTree = "<group>"; };
 		5D9978071E8D57F6007E7B9D /* RuntimeKit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RuntimeKit; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D99780A1E8D57F6007E7B9D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5D9978121E8D584A007E7B9D /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
@@ -80,7 +84,9 @@
 			children = (
 				5D9978121E8D584A007E7B9D /* AssociatedObject.swift */,
 				5D9978171E8D5D46007E7B9D /* Swizzle.swift */,
-				5D71EAF71E8DB28800F430FA /* Methods.swift */,
+				5D71EAF71E8DB28800F430FA /* MethodLookup.swift */,
+				5D71EB011E8E223400F430FA /* AddMethod.swift */,
+				5D4F963E1E8E54EE00CE6FAA /* TypeEncoding.swift */,
 				5D71EAFB1E8DBBF300F430FA /* Properties.swift */,
 				5D71EAFF1E8E1E5800F430FA /* Classes.swift */,
 				5D71EAFD1E8E1DD100F430FA /* Runtime.swift */,
@@ -149,9 +155,11 @@
 			files = (
 				5D71EAFC1E8DBBF300F430FA /* Properties.swift in Sources */,
 				5D71EB001E8E1E5800F430FA /* Classes.swift in Sources */,
-				5D71EAF81E8DB28800F430FA /* Methods.swift in Sources */,
+				5D71EAF81E8DB28800F430FA /* MethodLookup.swift in Sources */,
 				5D9978181E8D5D46007E7B9D /* Swizzle.swift in Sources */,
+				5D71EB021E8E223400F430FA /* AddMethod.swift in Sources */,
 				5D9978131E8D584A007E7B9D /* AssociatedObject.swift in Sources */,
+				5D4F963F1E8E54EE00CE6FAA /* TypeEncoding.swift in Sources */,
 				5D71EAFE1E8E1DD100F430FA /* Runtime.swift in Sources */,
 				5D99780B1E8D57F6007E7B9D /* main.swift in Sources */,
 			);
