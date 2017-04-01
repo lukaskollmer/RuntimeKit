@@ -27,7 +27,7 @@ public extension NSObject {
         let cls: AnyClass = methodType == .instance ? self : object_getClass(self)
         
         guard let originalMethod = class_getMethod(cls, originalSelector, methodType), let swizzledMethod = class_getMethod(cls, swizzledSelector, methodType) else {
-            throw RuntimeKitError.swizzleMethodNotFound
+            throw RuntimeKitError.methodNotFound
         }
         
         
@@ -52,7 +52,7 @@ public extension NSObject {
         let cls: AnyClass = methodType == .instance ? self : object_getClass(self)
         
         guard let originalMethod = class_getMethod(cls, originalSelector, methodType) else {
-            throw RuntimeKitError.swizzleMethodNotFound
+            throw RuntimeKitError.methodNotFound
         }
         
         
@@ -66,7 +66,7 @@ public extension NSObject {
 }
 
 
-private func class_getMethod(_ cls: Swift.AnyClass!, _ name: Selector!, _ methodType: MethodType) -> Method! {
+internal func class_getMethod(_ cls: Swift.AnyClass!, _ name: Selector!, _ methodType: MethodType) -> Method! {
     switch methodType {
     case .instance: return class_getInstanceMethod(cls, name)
     case .class: return class_getClassMethod(cls, name)

@@ -9,7 +9,7 @@
 import Foundation
 
 public enum RuntimeKitError: Error {
-    case swizzleMethodNotFound
+    case methodNotFound
     case unableToCreateMethodImplmentationFromBlock
     case classnameAlreadyTaken
     case unableToCreateClass
