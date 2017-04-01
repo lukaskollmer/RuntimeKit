@@ -11,7 +11,7 @@ import ObjectiveC
 
 
 /// An Objective-C method
-public struct ObjCMethod {
+public struct ObjCMethodInfo {
     /// The method's name
     public let name: String
     
@@ -22,8 +22,8 @@ public struct ObjCMethod {
     public let type: MethodType
     
     /// A String describing the method's return type
-    public var returnType: String {
-        return String(cString: method_copyReturnType(_method))
+    public var returnType: ObjCTypeEncoding {
+        return ObjCTypeEncoding(rawValue: String(cString: method_copyReturnType(_method)))!
     }
     
     /// Number of arguments accepted by the method
@@ -64,7 +64,7 @@ public struct ObjCMethod {
 
 public extension NSObject {
     /// An object's instance methods
-    public static var instanceMethods: [ObjCMethod] {
+    public static var instanceMethods: [ObjCMethodInfo] {
         var count: UInt32 = 0
         let methodList = class_copyMethodList(self.classForCoder(), &count)
         
@@ -72,21 +72,31 @@ public extension NSObject {
     }
     
     /// An object's class methods
-    public static var classMethods: [ObjCMethod] {
+    public static var classMethods: [ObjCMethodInfo] {
         var count: UInt32 = 0
         let methodList = class_copyMethodList(object_getClass(self), &count)
         
         return ObjCMethodArrayFromMethodList(methodList, count, .class)
     }
+    
+    public static func methodInfo(for: Selector, type: MethodType) throws -> ObjCMethodInfo {
+        let cls: AnyClass = type == .instance ? self : object_getClass(self)
+        
+        guard let method = class_getMethod(cls, `for`, type) else {
+            throw RuntimeKitError.methodNotFound
+        }
+        
+        return ObjCMethodInfo(method, type: type)
+    }
 }
 
-fileprivate func ObjCMethodArrayFromMethodList(_ methodList: UnsafeMutablePointer<Method?>?, _ count: UInt32, _ methodType: MethodType) -> [ObjCMethod] {
-    var methods = [ObjCMethod]()
+fileprivate func ObjCMethodArrayFromMethodList(_ methodList: UnsafeMutablePointer<Method?>?, _ count: UInt32, _ methodType: MethodType) -> [ObjCMethodInfo] {
+    var methods = [ObjCMethodInfo]()
     
     for i in 0..<count {
         guard let method = methodList.unsafelyUnwrapped[Int(i)] else { continue }
         
-        methods.append(ObjCMethod(method, type: methodType))
+        methods.append(ObjCMethodInfo(method, type: methodType))
     }
     
     return methods
