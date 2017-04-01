@@ -29,6 +29,7 @@ Just copy everything in [`RuntimeKit/Sources`](https://github.com/lukaskollmer/R
 2. [Associated objects](#associated-objects)
 3. [Creating new classes](#creating-new-classes)
 4. [Creating new protocols](#creating-new-protocols)
+5. Performing ObjC Selectors w/ some additional type safety
 
 
 ### Method Swizzling
@@ -107,4 +108,25 @@ let methods = [
 
 let GreeterProtocol = try! Runtime.createProtocol("Greeter", methods: methods)
 let LKGreeter = try! Runtime.createClass("LKGreeter", superclass: NSObject.self, protocols: [GreeterProtocol])
+```
+
+
+### Performing Objective-C Selectors with some additional type safety
+
+```swift
+
+
+let formatBlock: @convention(block) (NSDate, Selector, String) -> String = { (_self, _sel, format) in
+    let formatter = DateFormatter()
+    formatter.dateFormat = format
+    return formatter.string(from: _self as Date)
+}
+try! NSDate.addMethod("customFormat:", implementation: formatBlock, methodType: .instance, returnType: .object, argumentTypes: [.object, .selector, .object])
+
+extension ObjCMethodCallRequests {
+    static let customFormat = ObjCMethodCallRequest<String>("customFormat:")
+}
+
+let now = NSDate()
+let formatString: String = try! now.perform(.customFormat, "EEEE MMM d, yyyy") // -> "Saturday Apr 1, 2017"
 ```
