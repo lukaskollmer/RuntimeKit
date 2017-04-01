@@ -15,6 +15,7 @@ public enum RuntimeKitError: Error {
     case unableToCreateClass
     case protocolAlreadyExists
     case unableToCreateProtocol
+    case tooManyArguments
 }
 
 public struct Runtime { }

@@ -27,6 +27,7 @@
 		5D7BD22A1E8F75CA00589E68 /* CreateClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F96401E8EB7AB00CE6FAA /* CreateClass.swift */; };
 		5D7BD22B1E8F75CA00589E68 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F96421E8EC83F00CE6FAA /* Protocols.swift */; };
 		5D7BD22D1E8F76BD00589E68 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7BD22C1E8F76BD00589E68 /* TestUtils.swift */; };
+		5D7C97251E8FDCC2004A0943 /* PerformSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7C97241E8FDCC2004A0943 /* PerformSelector.swift */; };
 		5D99780B1E8D57F6007E7B9D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D99780A1E8D57F6007E7B9D /* main.swift */; };
 		5D9978131E8D584A007E7B9D /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978121E8D584A007E7B9D /* AssociatedObject.swift */; };
 		5D9978181E8D5D46007E7B9D /* Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978171E8D5D46007E7B9D /* Swizzle.swift */; };
@@ -57,6 +58,7 @@
 		5D7BD2121E8F73FD00589E68 /* RuntimeKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeKitTests.swift; sourceTree = "<group>"; };
 		5D7BD2141E8F73FD00589E68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D7BD22C1E8F76BD00589E68 /* TestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
+		5D7C97241E8FDCC2004A0943 /* PerformSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformSelector.swift; sourceTree = "<group>"; };
 		5D9978071E8D57F6007E7B9D /* RuntimeKit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RuntimeKit; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D99780A1E8D57F6007E7B9D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5D9978121E8D584A007E7B9D /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				5D71EAFF1E8E1E5800F430FA /* Classes.swift */,
 				5D4F96401E8EB7AB00CE6FAA /* CreateClass.swift */,
 				5D4F96421E8EC83F00CE6FAA /* Protocols.swift */,
+				5D7C97241E8FDCC2004A0943 /* PerformSelector.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D7C97251E8FDCC2004A0943 /* PerformSelector.swift in Sources */,
 				5D71EAFC1E8DBBF300F430FA /* Properties.swift in Sources */,
 				5D71EB001E8E1E5800F430FA /* Classes.swift in Sources */,
 				5D71EAF81E8DB28800F430FA /* MethodLookup.swift in Sources */,
@@ -409,6 +413,7 @@
 				5D7BD2161E8F73FD00589E68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5D9978021E8D57F6007E7B9D /* Build configuration list for PBXProject "RuntimeKit" */ = {
 			isa = XCConfigurationList;
