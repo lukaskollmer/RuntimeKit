@@ -97,8 +97,7 @@
 				5D4F96401E8EB7AB00CE6FAA /* CreateClass.swift */,
 				5D4F96421E8EC83F00CE6FAA /* Protocols.swift */,
 			);
-			name = Sources;
-			path = ../Sources;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
