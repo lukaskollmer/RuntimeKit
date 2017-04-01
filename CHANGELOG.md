@@ -1,3 +1,6 @@
+### v0.3.0 (2017-03-31)
+- Added some documentation
+
 ### v0.2.0 (2017-03-31)
 - Added `Runtime.allClasses`
 - Added `Runtime.classExists`
