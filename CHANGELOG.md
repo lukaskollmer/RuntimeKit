@@ -1,3 +1,6 @@
+### v0.4.0 (2017-04-01)
+- Added `NSObject.perform`: Perform ObjC selectors w/ some additional type safety
+
 ### v0.3.0 (2017-03-31)
 - Added some documentation
 
