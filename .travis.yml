@@ -5,3 +5,4 @@ xcode_scheme: RuntimeKit
 osx_image: xcode8.3
 
 script: xcodebuild -scheme RuntimeKit | xcpretty
+script: xcodebuild -scheme RuntimeKitTests test | xcpretty
