@@ -29,7 +29,7 @@ Just copy everything in [`RuntimeKit/Sources`](https://github.com/lukaskollmer/R
 2. [Associated objects](#associated-objects)
 3. [Creating new classes](#creating-new-classes)
 4. [Creating new protocols](#creating-new-protocols)
-5. Performing ObjC Selectors w/ some additional type safety
+5. [Performing ObjC Selectors w/ some additional type safety](performing-objective-c-selectors-with-some-additional-type-safety)
 
 
 ### Method Swizzling
