@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RuntimeKit'
-  s.version          = '0.3.0'
+  s.version          = '0.3.1'
   s.summary          = 'Swift wrapper around the Objective-C runtime APIs'
 
 # This description is used to generate tags and improve search results.
@@ -23,7 +23,6 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = 'https://github.com/lukaskollmer/RuntimeKit'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'License' }
   s.author           = { 'Lukas Kollmer' => 'lukas.kollmer@gmail.com' }
   s.source           = { :git => 'https://github.com/lukaskollmer/RuntimeKit.git', :tag => s.version.to_s }
@@ -31,13 +30,5 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'RuntimeKit/Sources/**/*'
-
-  # s.resource_bundles = {
-  #   'RuntimeKit' => ['RuntimeKit/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.source_files = 'Sources/**/*'
 end
