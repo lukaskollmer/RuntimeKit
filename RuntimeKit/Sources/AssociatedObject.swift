@@ -40,5 +40,23 @@ public extension NSObject {
     public func getAssociatedObject<T>(forKey key: AssociatedObjectKey<T>) -> T? {
         return objc_getAssociatedObject(self, key.value) as? T
     }
+    
+    /// Remove an associated valye for a given object
+    ///
+    /// - Parameter key: The key for the association
+    /// - Returns: The old value associated with the key `key` for the object.
+    @discardableResult
+    public func removeAssociatedObject<T>(forKey key: AssociatedObjectKey<T>) -> T? {
+        let value = self.getAssociatedObject(forKey: key)
+        
+        self.setAssociatedObject(nil, forKey: key)
+        
+        return value
+    }
+    
+    /// Removes all associations for a given object.
+    public func removeAllAssociatedObjects() {
+        objc_removeAssociatedObjects(self)
+    }
 }
 
