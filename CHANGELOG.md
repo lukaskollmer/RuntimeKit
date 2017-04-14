@@ -1,3 +1,7 @@
+### v0.4.1 (2017-04-14)
+- Added `NSObject.removeAssociatedObject`: Remove a single associated object from an object
+- Added `NSObject.removeAllAssociatedObjects`: Remove all associated objects from an object
+
 ### v0.4.0 (2017-04-01)
 - Added `NSObject.perform`: Perform ObjC selectors w/ some additional type safety
 
