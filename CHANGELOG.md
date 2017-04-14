@@ -1,4 +1,4 @@
-### v0.4.1 (2017-04-14)
+### v0.4.2 (2017-04-14)
 - Added `NSObject.removeAssociatedObject`: Remove a single associated object from an object
 - Added `NSObject.removeAllAssociatedObjects`: Remove all associated objects from an object
 
