@@ -31,6 +31,7 @@
 		5D99780B1E8D57F6007E7B9D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D99780A1E8D57F6007E7B9D /* main.swift */; };
 		5D9978131E8D584A007E7B9D /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978121E8D584A007E7B9D /* AssociatedObject.swift */; };
 		5D9978181E8D5D46007E7B9D /* Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978171E8D5D46007E7B9D /* Swizzle.swift */; };
+		5DB772581EA215950064E376 /* PerformSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7C97241E8FDCC2004A0943 /* PerformSelector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -236,6 +237,7 @@
 				5D7BD22B1E8F75CA00589E68 /* Protocols.swift in Sources */,
 				5D7BD2241E8F75CA00589E68 /* Swizzle.swift in Sources */,
 				5D7BD2271E8F75CA00589E68 /* TypeEncoding.swift in Sources */,
+				5DB772581EA215950064E376 /* PerformSelector.swift in Sources */,
 				5D7BD2221E8F75CA00589E68 /* Runtime.swift in Sources */,
 				5D7BD22D1E8F76BD00589E68 /* TestUtils.swift in Sources */,
 				5D7BD22A1E8F75CA00589E68 /* CreateClass.swift in Sources */,
