@@ -19,10 +19,42 @@ public class ObjCMethodCallRequest<T>: ObjCMethodCallRequests {
     }
 }
 
+public struct ObjCMethodCallResultWrapper<T> {
+    let value: Unmanaged<AnyObject>!
+    let isVoid: Bool
+    
+    init(_ value: Unmanaged<AnyObject>) {
+        self.value = value
+        self.isVoid = false
+    }
+    
+    init(isVoid: Bool) {
+        self.isVoid = isVoid
+        self.value = nil
+    }
+    
+    static func Void() -> ObjCMethodCallResultWrapper {
+        return ObjCMethodCallResultWrapper(isVoid: true)
+    }
+    
+    public func takeRetainedValue() -> T! {
+        if isVoid { return Void() as! T }
+        
+        return value.takeRetainedValue() as! T
+    }
+    
+    public func takeUnretainedValue() -> T! {
+        if isVoid { return Void() as! T }
+        
+        return value.takeUnretainedValue() as! T
+    }
+}
+
 public extension NSObject {
     
+    // TODO add an option to choose whether a retained or an unretained value should be returned
     
-    public static func perform<T>(_ methodCall: ObjCMethodCallRequest<T>, _ args: Any...) throws -> T! {
+    public static func perform<T>(_ methodCall: ObjCMethodCallRequest<T>, _ args: Any...) throws -> ObjCMethodCallResultWrapper<T>! {
         guard args.count <= 2 else {
             throw RuntimeKitError.tooManyArguments
         }
@@ -37,16 +69,18 @@ public extension NSObject {
             }
         }()
         
-        guard methodInfo.returnType != .void && (T.self != Void.self) else { return Void() as! T }
+        guard methodInfo.returnType != .void && (T.self != Void.self) else {
+            return ObjCMethodCallResultWrapper.Void()
+        }
         
         guard let unwrappedRetval = retval else { return nil }
         
-        return unwrappedRetval.takeRetainedValue() as! T
+        return ObjCMethodCallResultWrapper<T>(unwrappedRetval)
     }
     
     
     
-    public func perform<T>(_ methodCall: ObjCMethodCallRequest<T>, _ args: Any...) throws -> T! {
+    public func perform<T>(_ methodCall: ObjCMethodCallRequest<T>, _ args: Any...) throws -> ObjCMethodCallResultWrapper<T>! {
         guard args.count <= 2 else {
             throw RuntimeKitError.tooManyArguments
         }
@@ -61,11 +95,13 @@ public extension NSObject {
             }
         }()
         
-        guard methodInfo.returnType != .void && (T.self != Void.self) else { return Void() as! T }
+        guard methodInfo.returnType != .void && (T.self != Void.self) else {
+            return ObjCMethodCallResultWrapper.Void()
+        }
         
         guard let unwrappedRetval = retval else { return nil }
         
-        return unwrappedRetval.takeRetainedValue() as! T
+        return ObjCMethodCallResultWrapper<T>(unwrappedRetval)
     }
 }
 

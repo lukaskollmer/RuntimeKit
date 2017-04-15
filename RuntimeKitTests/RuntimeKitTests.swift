@@ -123,8 +123,8 @@ class RuntimeKitTests: XCTestCase {
         
         let date = dayOfTheDoctor()
         
-        let formattedString: String = try! date.perform(customFormatSel, "EEEE MMM d, yyyy")
-        
+        let formattedString: String = try! date.perform(customFormatSel, "EEEE MMM d, yyyy").takeUnretainedValue()
+
         XCTAssertEqual(formattedString, "Saturday Nov 23, 2013")
     }
     
