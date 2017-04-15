@@ -54,4 +54,8 @@ public extension Runtime {
     public static func classExists(_ name: String) -> Bool {
         return objc_getClass(name.cString(using: .utf8)) != nil
     }
+    
+    public static func getClass(_ name: String) -> NSObject.Type? {
+        return objc_getClass(name.cString(using: .utf8)) as? NSObject.Type
+    }
 }
