@@ -21,9 +21,7 @@ public struct ObjCPropertyDescription: CustomStringConvertible {
     
     public let property: objc_property_t
     
-    public private(set) var typeEncoding: ObjCTypeEncoding = .unknown
-    
-    public private(set) var type: NSObject.Type?
+    public private(set) var typeEncoding: ObjCTypeEncoding = .unknown("?")
     
     /// The property is read-only (readonly).
     public private(set) var isReadOnly = false
@@ -85,10 +83,9 @@ public struct ObjCPropertyDescription: CustomStringConvertible {
                         .replacingOccurrences(of: "\"", with: "")
                 }
                 if (Runtime.classExists(value)) {
-                    self.typeEncoding = .object
-                    self.type = Runtime.getClass(value)
+                    self.typeEncoding = ObjCTypeEncoding("@", type: Runtime.getClass(value))
                 } else {
-                    self.typeEncoding = ObjCTypeEncoding(rawValue: value) ?? .unknown
+                    self.typeEncoding = ObjCTypeEncoding(value)
                 }
             case "R":
                 self.isReadOnly = true
@@ -119,8 +116,7 @@ public struct ObjCPropertyDescription: CustomStringConvertible {
     }
     
     public var description: String {
-        let name = String(cString: property_getName(property))
-        return "[objc_property name: \(name)]"
+        return "[objc_property name: \(self.name)]"
     }
 }
 
@@ -137,6 +133,8 @@ public extension NSObject {
             
             properties.append(ObjCPropertyDescription(property))
         }
+        
+        free(propertyList)
         
         return properties
     }

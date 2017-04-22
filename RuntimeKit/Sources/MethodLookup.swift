@@ -23,7 +23,7 @@ public struct ObjCMethodInfo {
     
     /// A String describing the method's return type
     public var returnType: ObjCTypeEncoding {
-        return ObjCTypeEncoding(rawValue: String(cString: method_copyReturnType(_method)))!
+        return ObjCTypeEncoding(String(cString: method_copyReturnType(_method)))
     }
     
     /// Number of arguments accepted by the method

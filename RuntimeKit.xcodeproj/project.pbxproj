@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D4F963F1E8E54EE00CE6FAA /* TypeEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F963E1E8E54EE00CE6FAA /* TypeEncoding.swift */; };
 		5D4F96411E8EB7AB00CE6FAA /* CreateClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F96401E8EB7AB00CE6FAA /* CreateClass.swift */; };
 		5D4F96431E8EC83F00CE6FAA /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F96421E8EC83F00CE6FAA /* Protocols.swift */; };
 		5D71EAF81E8DB28800F430FA /* MethodLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EAF71E8DB28800F430FA /* MethodLookup.swift */; };
@@ -21,7 +20,6 @@
 		5D7BD2241E8F75CA00589E68 /* Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978171E8D5D46007E7B9D /* Swizzle.swift */; };
 		5D7BD2251E8F75CA00589E68 /* MethodLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EAF71E8DB28800F430FA /* MethodLookup.swift */; };
 		5D7BD2261E8F75CA00589E68 /* AddMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EB011E8E223400F430FA /* AddMethod.swift */; };
-		5D7BD2271E8F75CA00589E68 /* TypeEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F963E1E8E54EE00CE6FAA /* TypeEncoding.swift */; };
 		5D7BD2281E8F75CA00589E68 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EAFB1E8DBBF300F430FA /* Properties.swift */; };
 		5D7BD2291E8F75CA00589E68 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D71EAFF1E8E1E5800F430FA /* Classes.swift */; };
 		5D7BD22A1E8F75CA00589E68 /* CreateClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F96401E8EB7AB00CE6FAA /* CreateClass.swift */; };
@@ -32,6 +30,8 @@
 		5D9978131E8D584A007E7B9D /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978121E8D584A007E7B9D /* AssociatedObject.swift */; };
 		5D9978181E8D5D46007E7B9D /* Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9978171E8D5D46007E7B9D /* Swizzle.swift */; };
 		5DB772581EA215950064E376 /* PerformSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7C97241E8FDCC2004A0943 /* PerformSelector.swift */; };
+		5DF2F97A1EAB641000F59D70 /* TypeEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF2F9791EAB641000F59D70 /* TypeEncoding.swift */; };
+		5DF2F97E1EAB6E2300F59D70 /* iVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF2F97D1EAB6E2300F59D70 /* iVars.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,7 +47,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5D4F963E1E8E54EE00CE6FAA /* TypeEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeEncoding.swift; sourceTree = "<group>"; };
 		5D4F96401E8EB7AB00CE6FAA /* CreateClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateClass.swift; sourceTree = "<group>"; };
 		5D4F96421E8EC83F00CE6FAA /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		5D71EAF71E8DB28800F430FA /* MethodLookup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodLookup.swift; sourceTree = "<group>"; };
@@ -64,6 +63,8 @@
 		5D99780A1E8D57F6007E7B9D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5D9978121E8D584A007E7B9D /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
 		5D9978171E8D5D46007E7B9D /* Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swizzle.swift; sourceTree = "<group>"; };
+		5DF2F9791EAB641000F59D70 /* TypeEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeEncoding.swift; sourceTree = "<group>"; };
+		5DF2F97D1EAB6E2300F59D70 /* iVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iVars.swift; path = ../../../../.Trash/iVars.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,9 +130,10 @@
 				5D9978171E8D5D46007E7B9D /* Swizzle.swift */,
 				5D71EAF71E8DB28800F430FA /* MethodLookup.swift */,
 				5D71EB011E8E223400F430FA /* AddMethod.swift */,
-				5D4F963E1E8E54EE00CE6FAA /* TypeEncoding.swift */,
+				5DF2F9791EAB641000F59D70 /* TypeEncoding.swift */,
 				5D71EAFB1E8DBBF300F430FA /* Properties.swift */,
 				5D71EAFF1E8E1E5800F430FA /* Classes.swift */,
+				5DF2F97D1EAB6E2300F59D70 /* iVars.swift */,
 				5D4F96401E8EB7AB00CE6FAA /* CreateClass.swift */,
 				5D4F96421E8EC83F00CE6FAA /* Protocols.swift */,
 				5D7C97241E8FDCC2004A0943 /* PerformSelector.swift */,
@@ -236,7 +238,6 @@
 				5D7BD2251E8F75CA00589E68 /* MethodLookup.swift in Sources */,
 				5D7BD22B1E8F75CA00589E68 /* Protocols.swift in Sources */,
 				5D7BD2241E8F75CA00589E68 /* Swizzle.swift in Sources */,
-				5D7BD2271E8F75CA00589E68 /* TypeEncoding.swift in Sources */,
 				5DB772581EA215950064E376 /* PerformSelector.swift in Sources */,
 				5D7BD2221E8F75CA00589E68 /* Runtime.swift in Sources */,
 				5D7BD22D1E8F76BD00589E68 /* TestUtils.swift in Sources */,
@@ -257,10 +258,11 @@
 				5D71EAF81E8DB28800F430FA /* MethodLookup.swift in Sources */,
 				5D4F96431E8EC83F00CE6FAA /* Protocols.swift in Sources */,
 				5D9978181E8D5D46007E7B9D /* Swizzle.swift in Sources */,
+				5DF2F97A1EAB641000F59D70 /* TypeEncoding.swift in Sources */,
 				5D71EB021E8E223400F430FA /* AddMethod.swift in Sources */,
 				5D9978131E8D584A007E7B9D /* AssociatedObject.swift in Sources */,
 				5D4F96411E8EB7AB00CE6FAA /* CreateClass.swift in Sources */,
-				5D4F963F1E8E54EE00CE6FAA /* TypeEncoding.swift in Sources */,
+				5DF2F97E1EAB6E2300F59D70 /* iVars.swift in Sources */,
 				5D71EAFE1E8E1DD100F430FA /* Runtime.swift in Sources */,
 				5D99780B1E8D57F6007E7B9D /* main.swift in Sources */,
 			);
