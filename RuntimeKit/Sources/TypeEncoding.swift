@@ -48,6 +48,8 @@ public enum ObjCTypeEncoding: String {
     case unsignedShort    = "S"
     case unsignedLong     = "L"
     case unsignedLongLong = "Q"
+    
+    case unknown = "?"
 }
 
 
