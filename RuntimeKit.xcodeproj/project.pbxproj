@@ -32,6 +32,7 @@
 		5DB772581EA215950064E376 /* PerformSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7C97241E8FDCC2004A0943 /* PerformSelector.swift */; };
 		5DF2F97A1EAB641000F59D70 /* TypeEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF2F9791EAB641000F59D70 /* TypeEncoding.swift */; };
 		5DF2F9801EAB702800F59D70 /* iVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF2F97F1EAB702800F59D70 /* iVars.swift */; };
+		5DF2F9811EAB707D00F59D70 /* TypeEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF2F9791EAB641000F59D70 /* TypeEncoding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -238,6 +239,7 @@
 				5D7BD2251E8F75CA00589E68 /* MethodLookup.swift in Sources */,
 				5D7BD22B1E8F75CA00589E68 /* Protocols.swift in Sources */,
 				5D7BD2241E8F75CA00589E68 /* Swizzle.swift in Sources */,
+				5DF2F9811EAB707D00F59D70 /* TypeEncoding.swift in Sources */,
 				5DB772581EA215950064E376 /* PerformSelector.swift in Sources */,
 				5D7BD2221E8F75CA00589E68 /* Runtime.swift in Sources */,
 				5D7BD22D1E8F76BD00589E68 /* TestUtils.swift in Sources */,

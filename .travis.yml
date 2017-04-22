@@ -4,5 +4,8 @@ xcode_scheme: RuntimeKit
 
 osx_image: xcode8.3
 
+before_scripts:
+  - set -o pipefail
+
 script: xcodebuild -scheme RuntimeKit | xcpretty
 script: xcodebuild -scheme RuntimeKitTests test | xcpretty

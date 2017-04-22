@@ -83,7 +83,7 @@ public struct ObjCPropertyDescription: CustomStringConvertible {
                         .replacingOccurrences(of: "\"", with: "")
                 }
                 if (Runtime.classExists(value)) {
-                    self.typeEncoding = ObjCTypeEncoding("@", type: Runtime.getClass(value))
+                    self.typeEncoding = ObjCTypeEncoding("@", type: Runtime.getClass(value)!)
                 } else {
                     self.typeEncoding = ObjCTypeEncoding(value)
                 }

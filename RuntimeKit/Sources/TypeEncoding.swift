@@ -64,7 +64,7 @@ public enum ObjCTypeEncoding {
     case unknown(String)
     
     
-    init(_ encoding: String, type: NSObject.Type? = nil) {
+    public init(_ encoding: String, type: NSObject.Type? = nil) {
         print("enc", encoding, "type", type)
         switch encoding {
         case "i": self = .int
@@ -99,8 +99,8 @@ public enum ObjCTypeEncoding {
 
 }
 
-extension ObjCTypeEncoding {
-    var rawValue: String {
+public extension ObjCTypeEncoding {
+    public var rawValue: String {
         switch self {
         case .int:      return "i"
         case .float:    return "f"
