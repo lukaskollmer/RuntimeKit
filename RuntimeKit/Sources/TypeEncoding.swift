@@ -64,7 +64,7 @@ public enum ObjCTypeEncoding {
     case unknown(String)
     
     
-    public init(_ encoding: String, type: NSObject.Type? = nil) {
+    public init(_ encoding: String, type: NSObject.Type = NSObject.self) {
         print("enc", encoding, "type", type)
         switch encoding {
         case "i": self = .int
@@ -75,7 +75,7 @@ public enum ObjCTypeEncoding {
         case "v": self = .void
         case "#": self = .class
         case ":": self = .selector
-        case "@": self = .object(type!)
+        case "@": self = .object(type)
         
         case "c": self = .char
         case "s": self = .short
