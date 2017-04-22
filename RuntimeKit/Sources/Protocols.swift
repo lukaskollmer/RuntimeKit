@@ -39,7 +39,7 @@ public struct ObjCMethodDescription {
     ///   - argumentTypes: The method's argument types
     ///   - methodType: `MethodType` case determining whether the method is an instance method or a class method
     ///   - isRequired: Boolean determining whether the method is required
-    init(_ name: Selector, returnType: ObjCTypeEncoding = .void, argumentTypes: [ObjCTypeEncoding] = [.object(NSObject.self), .selector], methodType: MethodType, isRequired: Bool = false) {
+    init(_ name: Selector, returnType: ObjCTypeEncoding = .void, argumentTypes: [ObjCTypeEncoding] = [.object, .selector], methodType: MethodType, isRequired: Bool = false) {
         self.name = name
         self.returnType = returnType
         self.argumentTypes = argumentTypes

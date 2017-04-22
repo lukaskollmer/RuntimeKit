@@ -27,7 +27,7 @@ class RuntimeKitTests: XCTestCase {
             return dayOfTheDoctor()
         }
         
-        try! NSDate.addMethod(Selector(("dayOfTheDoctor")), implementation: newMethod, methodType: .class, returnType: .object(NSObject.self), argumentTypes: [.object(NSObject.self), .selector])
+        try! NSDate.addMethod(Selector(("dayOfTheDoctor")), implementation: newMethod, methodType: .class, returnType: .object, argumentTypes: [.object, .selector])
         
         let date1 = NSDate.perform(Selector(("dayOfTheDoctor"))).takeRetainedValue() as! NSDate
         let date2 = dayOfTheDoctor()
@@ -101,7 +101,7 @@ class RuntimeKitTests: XCTestCase {
             return "Hello, \(name)!"
         }
         
-        try! OurCustomClass.addMethod(Selector(("greet:")), implementation: method, methodType: .class, returnType: .object(NSObject.self), argumentTypes: [.object(NSObject.self), .selector, .object(NSObject.self)])
+        try! OurCustomClass.addMethod(Selector(("greet:")), implementation: method, methodType: .class, returnType: .object, argumentTypes: [.object, .selector, .object])
         
         if let result = OurCustomClass.perform(Selector(("greet:")), with: "Lukas").takeUnretainedValue() as? String {
             XCTAssertEqual(result, "Hello, Lukas!")
@@ -117,7 +117,7 @@ class RuntimeKitTests: XCTestCase {
             return formatter.string(from: _self as Date)
         }
         
-        try! NSDate.addMethod(Selector(("customFormat:")), implementation: formatBlock, methodType: .instance, returnType: .object(NSObject.self), argumentTypes: [.object(NSObject.self), .selector, .object(NSObject.self)])
+        try! NSDate.addMethod(Selector(("customFormat:")), implementation: formatBlock, methodType: .instance, returnType: .object, argumentTypes: [.object, .selector, .object])
         
         let customFormatSel = ObjCMethodCallRequest<String>("customFormat:")
         

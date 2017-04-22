@@ -23,6 +23,8 @@ public struct ObjCPropertyDescription: CustomStringConvertible {
     
     public private(set) var typeEncoding: ObjCTypeEncoding = .unknown("?")
     
+    public private(set) var type: NSObject.Type?
+    
     /// The property is read-only (readonly).
     public private(set) var isReadOnly = false
     
@@ -83,7 +85,8 @@ public struct ObjCPropertyDescription: CustomStringConvertible {
                         .replacingOccurrences(of: "\"", with: "")
                 }
                 if (Runtime.classExists(value)) {
-                    self.typeEncoding = ObjCTypeEncoding("@", type: Runtime.getClass(value)!)
+                    self.typeEncoding = ObjCTypeEncoding("@")
+                    self.type = Runtime.getClass(value)
                 } else {
                     self.typeEncoding = ObjCTypeEncoding(value)
                 }

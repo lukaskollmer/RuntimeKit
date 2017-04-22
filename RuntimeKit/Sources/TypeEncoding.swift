@@ -44,7 +44,7 @@ public enum ObjCTypeEncoding {
     case bool
     
     case void
-    case object(NSObject.Type)
+    case object
     case `class`
     case selector
     
@@ -64,8 +64,7 @@ public enum ObjCTypeEncoding {
     case unknown(String)
     
     
-    public init(_ encoding: String, type: NSObject.Type = NSObject.self) {
-        print("enc", encoding, "type", type)
+    public init(_ encoding: String) {
         switch encoding {
         case "i": self = .int
         case "f": self = .float
@@ -75,7 +74,7 @@ public enum ObjCTypeEncoding {
         case "v": self = .void
         case "#": self = .class
         case ":": self = .selector
-        case "@": self = .object(type)
+        case "@": self = .object
         
         case "c": self = .char
         case "s": self = .short
@@ -147,8 +146,7 @@ public func ==(lhs: ObjCTypeEncoding, rhs: ObjCTypeEncoding) -> Bool {
     case (.void, .void):            return true
     case (.`class`, .`class`):      return true
     case (.selector, .selector):    return true
-    case let (.object(type1), .object(type2)):
-        return type1 == type2
+    case (.object, .object):        return true
         
     case (.char, .char):    return true
     case (.short, .short):  return true

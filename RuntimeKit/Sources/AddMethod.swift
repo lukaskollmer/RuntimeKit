@@ -22,7 +22,7 @@ public extension NSObject {
     /// - Returns: `true` if the method was added successfully, otherwise `false`
     /// - Throws: `RuntimeKitError.unableToCreateMethodImplmentationFromBlock` if there was an error turning the block into a method implementation
     @discardableResult
-    public static func addMethod(_ newSelector: Selector, implementation implementationBlock: Any, methodType: MethodType = .instance, returnType: ObjCTypeEncoding = .void, argumentTypes: [ObjCTypeEncoding] = [.object(NSObject.self), .selector]) throws -> Bool {
+    public static func addMethod(_ newSelector: Selector, implementation implementationBlock: Any, methodType: MethodType = .instance, returnType: ObjCTypeEncoding = .void, argumentTypes: [ObjCTypeEncoding] = [.object, .selector]) throws -> Bool {
         
         let cls: AnyClass = methodType == .instance ? self : object_getClass(self)
         
