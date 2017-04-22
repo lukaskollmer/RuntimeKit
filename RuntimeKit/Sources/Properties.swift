@@ -140,4 +140,14 @@ public extension NSObject {
         
         return properties
     }
+    
+    public func getProperty<T>(_ property: ObjCPropertyDescription) -> T! {
+        let key = property.customGetter ?? property.name
+        
+        return self.getProperty(key)
+    }
+    
+    public func getProperty<T>(_ name: String) -> T! {
+        return self.value(forKey: name) as? T
+    }
 }
