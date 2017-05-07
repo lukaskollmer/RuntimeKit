@@ -91,6 +91,30 @@ class RuntimeKitTests: XCTestCase {
         XCTAssertEqual(myAddress.getAssociatedObject(forKey: cityKey)!, "Munich")
     }
     
+    func testValueTypeAssociatedObject() {
+        class Person: NSObject {}
+        struct Name {
+            let first: String
+            let last: String
+        }
+        
+        let nameKey = AssociatedObjectKey<Name>("name")
+        let ageKey = AssociatedObjectKey<Int>("age")
+        
+        let me = Person()
+        let name = Name(first: "Lukas", last: "Kollmer")
+        me.setAssociatedObject(name, forKey: nameKey)
+        me.setAssociatedObject(18, forKey: ageKey)
+        
+        
+        let myName = me.getAssociatedObject(forKey: nameKey)!
+        let myAge = me.getAssociatedObject(forKey: ageKey)!
+        
+        XCTAssertEqual(myName.first, name.first)
+        XCTAssertEqual(myName.last, name.last)
+        XCTAssertEqual(myAge, 18)
+    }
+    
     
     func testCreateNewClass() {
         let OurCustomClass = try! Runtime.createClass("OurCustomClass")
