@@ -152,4 +152,35 @@ class RuntimeKitTests: XCTestCase {
         XCTAssertEqual(formattedString, "Saturday Nov 23, 2013")
     }
     
+    
+    func testGetClassMethods() {
+        class Address: NSObject {}
+        class Person: NSObject {
+            let name: String
+            let age: Int
+            let address: Address
+            
+            class func personWithName(name: String, age: Int, address: Address) -> Person {
+                return Person(name: name, age: age, address: address)
+            }
+            
+            init(name: String, age: Int, address: Address) {
+                self.name = name
+                self.age = age
+                self.address = address
+            }
+        }
+        
+        let classMethods = Person.classMethods
+        XCTAssertEqual(classMethods.count, 1)
+        
+        let m1 = classMethods.first!
+        XCTAssertEqual(m1.name, "personWithNameWithName:age:address:")
+        XCTAssertEqual(m1.selector, #selector(Person.personWithName(name:age:address:)))
+        XCTAssertEqual(m1.returnType, .object)
+        XCTAssertEqual(m1.numberOfArguments, 5)
+        XCTAssertEqual(m1.type, .class)
+        XCTAssertEqual(m1.argumentTypes, [.object, .selector, .object, .longLong, .object])
+    }
+    
 }
