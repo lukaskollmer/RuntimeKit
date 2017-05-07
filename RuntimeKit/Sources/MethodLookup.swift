@@ -32,13 +32,13 @@ public struct ObjCMethodInfo {
     }
     
     /// The method's argument types
-    public var argumentTypes: [String] {
+    public var argumentTypes: [ObjCTypeEncoding] {
         var argTypes = [String]()
         for i in 0..<numberOfArguments {
             argTypes.append(String(cString: method_copyArgumentType(_method, UInt32(i))))
         }
         
-        return argTypes
+        return argTypes.map(ObjCTypeEncoding.init)
     }
     
     /// The method's implementation
