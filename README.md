@@ -1,9 +1,10 @@
 # RuntimeKit
 
 [![Build Status](https://travis-ci.org/lukaskollmer/RuntimeKit.svg?branch=master)](https://travis-ci.org/lukaskollmer/RuntimeKit)
-![](https://img.shields.io/badge/Swift-3.1-orange.svg)
-![CocoaPods](https://img.shields.io/cocoapods/v/RuntimeKit.svg)
-![CocoaPods](https://img.shields.io/cocoapods/l/RuntimeKit.svg)
+[![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg)](https://github.com/lukaskollmer/RuntimeKit)
+[![CocoaPods](https://img.shields.io/cocoapods/v/RuntimeKit.svg)](https://cocoapods.org/pods/RuntimeKit)
+[![CocoaPods](https://img.shields.io/cocoapods/p/RuntimeKit.svg)](https://cocoapods.org/pods/RuntimeKit)
+[![CocoaPods](https://img.shields.io/cocoapods/l/RuntimeKit.svg)](https://cocoapods.org/pods/RuntimeKit)
 
 RuntimeKit is a Swift library for accessing the Objective-C runtime.
 In addition to providing wrappers around features like method swizzling or associated values, it also provides some type safety.
