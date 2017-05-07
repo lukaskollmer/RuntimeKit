@@ -49,6 +49,9 @@ public struct ObjCPropertyDescription: CustomStringConvertible {
     /// The property is a weak reference (__weak).
     public private(set) var isWeak = false
     
+    /// The property is a const.
+    public private(set) var isConst = false
+    
     /// The property is eligible for garbage collection.
     public private(set) var isEligibleForGarbageCollection = false
     
@@ -79,10 +82,13 @@ public struct ObjCPropertyDescription: CustomStringConvertible {
                  - [ ] other type encoding codes like 'r' for const, etc (https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html)
                  */
                 var value = value
-                if value.hasPrefix("@\"") && value.hasSuffix("\"") {
+                if value.hasPrefix("@\"") && value.hasSuffix("\"") { // id
                     value = value
                         .replacingOccurrences(of: "@\"", with: "")
                         .replacingOccurrences(of: "\"", with: "")
+                } else if value.hasPrefix("r") { // const
+                    value = value.replacingOccurrences(of: "r", with: "")
+                    self.isConst = true
                 }
                 if (Runtime.classExists(value)) {
                     self.typeEncoding = ObjCTypeEncoding("@")
