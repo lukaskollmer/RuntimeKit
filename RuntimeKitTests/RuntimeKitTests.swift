@@ -192,4 +192,12 @@ class RuntimeKitTests: XCTestCase {
         XCTAssertNil(Runtime.getClass(classname))
     }
     
+    func testDestroyClassShouldFailForNonCustomClasses() {
+        let NSStringClass = Runtime.getClass("NSString")!
+        
+        Runtime.destroy(class: NSStringClass)
+        
+        XCTAssertNotNil(NSStringClass)
+    }
+    
 }
