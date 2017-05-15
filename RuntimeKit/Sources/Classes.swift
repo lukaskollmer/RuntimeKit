@@ -39,6 +39,9 @@ public extension Runtime {
         return castedClass
     }
     
+    /// Destroys a class and its associated metaclass.
+    ///
+    /// - Parameter cls: The class to be destroyed. This class must have been created using RuntimeKit.createClass(_:)
     public static func destroy(class cls: NSObject.Type) {
         objc_disposeClassPair(cls)
     }
