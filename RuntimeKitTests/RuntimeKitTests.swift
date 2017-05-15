@@ -183,4 +183,13 @@ class RuntimeKitTests: XCTestCase {
         XCTAssertEqual(m1.argumentTypes, [.object, .selector, .object, .longLong, .object])
     }
     
+    func testDestroyClass() {
+        let classname = "Greeter"
+        let GreeterClass = try! Runtime.createClass(classname)
+        
+        Runtime.destroy(class: GreeterClass)
+        
+        XCTAssertNil(Runtime.getClass(classname))
+    }
+    
 }
