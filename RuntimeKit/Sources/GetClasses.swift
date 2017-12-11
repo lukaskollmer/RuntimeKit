@@ -35,13 +35,13 @@ public extension Runtime {
     /// All classes registered with the Objective-C runtime
     public static var allClasses: [ObjCClassDescription] {
         var count: UInt32 = 0
-        let classList = objc_copyClassList(&count)
+        
+        guard let classList = objc_copyClassList(&count) else { return [] }
         
         var allClasses = [ObjCClassDescription]()
         
         for i in 0..<count {
-            guard let `class` = classList.unsafelyUnwrapped[Int(i)] else { continue }
-            allClasses.append(ObjCClassDescription(`class`))
+            allClasses.append(ObjCClassDescription(classList[Int(i)]))
         }
         
         return allClasses
@@ -52,10 +52,10 @@ public extension Runtime {
     /// - Parameter name: A class name
     /// - Returns: `true` if the class exists, otherwise `false`
     public static func classExists(_ name: String) -> Bool {
-        return objc_getClass(name.cString(using: .utf8)) != nil
+        return objc_getClass(name.cString(using: .utf8)!) != nil
     }
     
     public static func getClass(_ name: String) -> NSObject.Type? {
-        return objc_getClass(name.cString(using: .utf8)) as? NSObject.Type
+        return objc_getClass(name.cString(using: .utf8)!) as? NSObject.Type
     }
 }

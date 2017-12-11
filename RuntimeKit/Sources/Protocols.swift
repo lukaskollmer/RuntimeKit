@@ -53,7 +53,7 @@ public extension Runtime {
     /// - Parameter name: The name of a protocol.
     /// - Returns: The protocol named `name`, or `nil` if no protocol named name could be found
     public static func getProtocol(_ name: String) -> Protocol? {
-        return objc_getProtocol(name.cString(using: .utf8))
+        return objc_getProtocol(name.cString(using: .utf8)!)
     }
     
     /// Creates a new protocol instance.
@@ -68,7 +68,7 @@ public extension Runtime {
             throw RuntimeKitError.protocolAlreadyExists
         }
         
-        guard let newProtocol = objc_allocateProtocol(name.cString(using: .utf8)) else {
+        guard let newProtocol = objc_allocateProtocol(name.cString(using: .utf8)!) else {
             throw RuntimeKitError.unableToCreateProtocol
         }
         

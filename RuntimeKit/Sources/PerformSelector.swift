@@ -38,13 +38,13 @@ public struct ObjCMethodCallResultWrapper<T> {
     }
     
     public func takeRetainedValue() -> T! {
-        if isVoid { return Void() as! T }
+        if isVoid { return ObjCMethodCallResultWrapper.Void() as! T }
         
         return value.takeRetainedValue() as! T
     }
     
     public func takeUnretainedValue() -> T! {
-        if isVoid { return Void() as! T }
+        if isVoid { return ObjCMethodCallResultWrapper.Void() as! T }
         
         return value.takeUnretainedValue() as! T
     }

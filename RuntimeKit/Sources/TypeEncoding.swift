@@ -110,7 +110,7 @@ public extension ObjCTypeEncoding {
         case .`class`:  return "#"
         case .selector: return ":"
             
-        case .object(_):
+        case .object:
             return "@"
             
         case .char:             return "c"

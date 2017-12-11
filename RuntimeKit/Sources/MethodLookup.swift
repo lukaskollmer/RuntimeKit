@@ -35,7 +35,7 @@ public struct ObjCMethodInfo {
     public var argumentTypes: [ObjCTypeEncoding] {
         var argTypes = [String]()
         for i in 0..<numberOfArguments {
-            argTypes.append(String(cString: method_copyArgumentType(_method, UInt32(i))))
+            argTypes.append(String(cString: method_copyArgumentType(_method, UInt32(i))!))
         }
         
         return argTypes.map(ObjCTypeEncoding.init)
@@ -74,13 +74,13 @@ public extension NSObject {
     /// An object's class methods
     public static var classMethods: [ObjCMethodInfo] {
         var count: UInt32 = 0
-        let methodList = class_copyMethodList(object_getClass(self), &count)
+        let methodList = class_copyMethodList(object_getClass(self), &count)!
         
         return ObjCMethodArrayFromMethodList(methodList, count, .class)
     }
     
     public static func methodInfo(for: Selector, type: MethodType) throws -> ObjCMethodInfo {
-        let cls: AnyClass = type == .instance ? self : object_getClass(self)
+        let cls: AnyClass = type == .instance ? self : object_getClass(self)!
         
         guard let method = class_getMethod(cls, `for`, type) else {
             throw RuntimeKitError.methodNotFound
@@ -90,11 +90,12 @@ public extension NSObject {
     }
 }
 
-fileprivate func ObjCMethodArrayFromMethodList(_ methodList: UnsafeMutablePointer<Method?>?, _ count: UInt32, _ methodType: MethodType) -> [ObjCMethodInfo] {
+fileprivate func ObjCMethodArrayFromMethodList(_ methodList: UnsafeMutablePointer<Method>?, _ count: UInt32, _ methodType: MethodType) -> [ObjCMethodInfo] {
+    guard let methodList = methodList else { return [] }
     var methods = [ObjCMethodInfo]()
     
     for i in 0..<count {
-        guard let method = methodList.unsafelyUnwrapped[Int(i)] else { continue }
+        let method = methodList[Int(i)]
         
         methods.append(ObjCMethodInfo(method, type: methodType))
     }

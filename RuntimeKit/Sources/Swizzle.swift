@@ -24,7 +24,7 @@ public extension NSObject {
     /// - Throws: `RuntimeKitError.swizzleMethodNotFound` if the selectors cannot be found on `self`
     public static func swizzle(_ originalSelector: Selector, with swizzledSelector: Selector, methodType: MethodType = .instance) throws {
         
-        let cls: AnyClass = methodType == .instance ? self : object_getClass(self)
+        let cls: AnyClass = methodType == .instance ? self : object_getClass(self)!
         
         guard let originalMethod = class_getMethod(cls, originalSelector, methodType), let swizzledMethod = class_getMethod(cls, swizzledSelector, methodType) else {
             throw RuntimeKitError.methodNotFound
@@ -49,16 +49,14 @@ public extension NSObject {
     /// - Throws: `RuntimeKitError.swizzleMethodNotFound` if the method cannot be found or `RuntimeKitError.unableToCreateMethodImplmentationFromBlock` if the block cannot be turned into a method implementation
     public static func replace(_ originalSelector: Selector, withBlock block: Any!, methodType: MethodType = .instance) throws {
         
-        let cls: AnyClass = methodType == .instance ? self : object_getClass(self)
+        let cls: AnyClass = methodType == .instance ? self : object_getClass(self)!
         
         guard let originalMethod = class_getMethod(cls, originalSelector, methodType) else {
             throw RuntimeKitError.methodNotFound
         }
         
         
-        guard let swizzledImplementation = imp_implementationWithBlock(block) else {
-            throw RuntimeKitError.unableToCreateMethodImplmentationFromBlock
-        }
+        let swizzledImplementation = imp_implementationWithBlock(block)
         
         method_setImplementation(originalMethod, swizzledImplementation)
         

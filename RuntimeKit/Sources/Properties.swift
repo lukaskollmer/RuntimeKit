@@ -133,14 +133,12 @@ public extension NSObject {
     /// Get an object's properties
     public static var properties: [ObjCPropertyDescription] {
         var count: UInt32 = 0
-        let propertyList = class_copyPropertyList(self, &count)
+        guard let propertyList = class_copyPropertyList(self, &count) else { return [] }
         
         var properties = [ObjCPropertyDescription]()
         
         for i in 0..<count {
-            guard let property = propertyList.unsafelyUnwrapped[Int(i)] else { continue }
-            
-            properties.append(ObjCPropertyDescription(property))
+            properties.append(ObjCPropertyDescription(propertyList[Int(i)]))
         }
         
         free(propertyList)

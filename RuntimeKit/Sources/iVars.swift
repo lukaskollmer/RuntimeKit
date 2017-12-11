@@ -13,7 +13,7 @@ public struct ObjCiVarDescription: CustomStringConvertible {
     public let iVar: Ivar
     
     public var name: String {
-        return String(cString: ivar_getName(iVar))
+        return String(cString: ivar_getName(iVar)!)
     }
     
     public var offset: Int {
@@ -37,12 +37,12 @@ public extension NSObject {
     /// Get an object's iVars
     public static var iVars: [ObjCiVarDescription] {
         var count: UInt32 = 0
-        let iVarList = class_copyIvarList(self, &count)
+        guard let iVarList = class_copyIvarList(self, &count) else { return [] }
         
         var iVars = [ObjCiVarDescription]()
         
         for i in 0..<count {
-            guard let ivar = iVarList.unsafelyUnwrapped[Int(i)] else { continue }
+            let ivar = iVarList[Int(i)]
             
             iVars.append(ObjCiVarDescription(ivar))
         }
