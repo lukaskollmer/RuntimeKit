@@ -116,6 +116,21 @@ class RuntimeKitTests: XCTestCase {
     }
     
     
+    func testSetAssociatedObjectViaSubscript() {
+        class Person: NSObject {}
+        
+        let me = Person()
+        let nameKey = AssociatedObjectKey<String>("name")
+        
+        me[nameKey] = "Lukas"
+        
+        
+        let myName = me[nameKey]
+        
+        XCTAssertEqual(myName, "Lukas")
+    }
+    
+    
     func testCreateNewClass() {
         let OurCustomClass = try! Runtime.createClass("OurCustomClass")
         
@@ -160,7 +175,7 @@ class RuntimeKitTests: XCTestCase {
             let age: Int
             let address: Address
             
-            class func personWithName(name: String, age: Int, address: Address) -> Person {
+            @objc class func personWithName(name: String, age: Int, address: Address) -> Person {
                 return Person(name: name, age: age, address: address)
             }
             

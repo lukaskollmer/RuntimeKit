@@ -54,6 +54,18 @@ public extension NSObject {
         return value
     }
     
+    
+    
+    public subscript <T> (key: AssociatedObjectKey<T>) -> T? {
+        get {
+            return self.getAssociatedObject(forKey: key)
+        }
+        set {
+            self.setAssociatedObject(newValue, forKey: key)
+        }
+    }
+    
+    
     /// Removes all associations for a given object.
     public func removeAllAssociatedObjects() {
         objc_removeAssociatedObjects(self)
